@@ -21,7 +21,7 @@ class ReligionTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-	    emf = Persistence.createEntityManagerFactory("VideoStore");
+	    emf = Persistence.createEntityManagerFactory("Religions");
 
 	}
 

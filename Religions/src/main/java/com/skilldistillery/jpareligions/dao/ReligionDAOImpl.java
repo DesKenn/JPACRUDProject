@@ -25,8 +25,9 @@ public class ReligionDAOImpl implements ReligionDAO {
 
 	@Override
 	public List<Religion> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		String query = "SELECT name FROM Religion name";
+		return em.createQuery(query,Religion.class).getResultList();
 	}
 
 	@Override

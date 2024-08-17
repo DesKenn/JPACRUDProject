@@ -56,7 +56,6 @@ Religion newReligion = em.find(Religion.class, religionId);
 		}
 		em.persist(newReligion);
 		em.flush();
-		em.getTransaction().commit();
 
 		return newReligion;
 

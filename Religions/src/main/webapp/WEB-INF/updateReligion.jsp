@@ -1,36 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ tag language="java" pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Different Religions</title>
+<title>Edit Religion</title>
 </head>
 <body>
+	<h2>Edit Religion</h2>
+	<c:choose>
+    <c:when test="${not empty religion}">
+        <form action="updateReligion.do" method="POST">
+    <input type="hidden" name="id" value="${religion.id}" />
 
-<h1>Religions</h1>
-
-
-${religion.religionId} ${religions}
-
-<h2>Religion Details</h2>
-	<form action="showReligion.do" method="GET">
-		<label for="religionId">Enter Religion ID:</label> <input type="text"
-			id="religionId" name="religionId">
-		<button type="submit">Get Religion details</button>
-	</form>
-	
-	<h2>Add Religion</h2>
-	<form action="showReligion.do" method="POST">
-		<label for="name">Name: (required)</label> 
-		<input type="text" id="religionId" name="name" required>
-		</form>
-	<br> 
-	<br> 
-		<br> 
-			<br> 
-		 <label for="religionName">Name:</label>
+    <label for="religionName">Name:</label>
     <input type="text" id="religionName" name="name" value="${religion.name}" required><br><br>
 
     <label for="religionDescription">Description:</label>
@@ -47,12 +30,19 @@ ${religion.religionId} ${religions}
 
     <label for="religionNumOfFollowers">Number of followers:</label>
     <input type="number" id="religionNumOfFollowers" name="numOfFollowers" value="${religion.numOfFollowers}"><br><br>
-    
 
-		<button type="submit">Add Religion</button>
 
-	<br>
-	<br>
-	</form>
+            <br>
+            <br>
+            <button type="submit">Update Religion</button>
+        </form>
+    </c:when>
+    <c:otherwise>
+        <p>No Religion details available. Please check the Religion ID and try again.</p>
+    </c:otherwise>
+</c:choose>
+
+    <a href="home.do">Return to Home</a>
+
 </body>
 </html>

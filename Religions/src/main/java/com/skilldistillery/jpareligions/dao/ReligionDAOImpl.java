@@ -18,7 +18,7 @@ public class ReligionDAOImpl implements ReligionDAO {
 	private EntityManager em;
 
 	@Override
-	public Religion fimdById(int religionId) {
+	public Religion findById(int religionId) {
 		
 		return em.find(Religion.class, religionId);
 	}
@@ -40,15 +40,40 @@ public class ReligionDAOImpl implements ReligionDAO {
 	}
 
 	@Override
-	public Religion update(int religionID, Religion religion) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Religion update(int religionId, Religion religion) {
+Religion newReligion = em.find(Religion.class, religionId);
+		
+		if(newReligion != null){
+			newReligion.setName(newReligion.getName());
+			newReligion.setOrigin(newReligion.getOrigin());
+			newReligion.setDescription(newReligion.getDescription());
+			newReligion.setBeliefs(newReligion.getBeliefs());
+			newReligion.setDateEstablished(newReligion.getDateEstablished());
+			newReligion.setFounder(newReligion.getFounder());
+			newReligion.setIdolOfWorship(newReligion.getIdolOfWorship());
+			newReligion.setNumOfFollowers(newReligion.getNumOfFollowers());
+			
+		}
+		em.persist(newReligion);
+		em.flush();
+		em.getTransaction().commit();
+
+		return newReligion;
+
+	}	
 
 	@Override
 	public boolean deleteById(int religionId) {
-		// TODO Auto-generated method stub
-		return false;
+	boolean deleted = false;
+		
+		Religion religion = em.find(Religion.class, religionId);
+		
+		if (religion != null) {
+			em.remove(religion);
+			deleted = true;
+		}
+		return deleted;
+	
 	}
 
 }

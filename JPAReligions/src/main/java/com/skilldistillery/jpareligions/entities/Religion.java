@@ -14,10 +14,16 @@ public class Religion {
 	private int id;
 	private String name;
 	private String origin;
-	
-	@Column(name = "date_established")
+	@Column (name = "date_established")
 	private String dateEstablished;
 	private String founder;
+	@Column (name = "idol_of_worship")
+	private String idolOfWorship;
+	private String beliefs;
+	@Column (name = "number_of_followers")
+	private long numOfFollowers;
+	private String description;
+	
 	
 	public Religion() {
 		super();
@@ -64,11 +70,46 @@ public class Religion {
 		this.founder = founder;
 	}
 
+	public String getIdolOfWorship() {
+		return idolOfWorship;
+	}
+
+	public void setIdolOfWorship(String idolOfWorship) {
+		this.idolOfWorship = idolOfWorship;
+	}
+
+	public long getNumOfFollowers() {
+		return numOfFollowers;
+	}
+
+	public void setNumOfFollowers(long numOfFollowers) {
+		this.numOfFollowers = numOfFollowers;
+	}
+
+	public String getBeliefs() {
+		return beliefs;
+	}
+
+	public void setBeliefs(String beliefs) {
+		this.beliefs = beliefs;
+	}
+
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	@Override
 	public String toString() {
 		return "Religion [id=" + id + ", name=" + name + ", origin=" + origin + ", dateEstablished=" + dateEstablished
-				+ ", founder=" + founder + "]";
+				+ ", founder=" + founder + ", idolOfWorship=" + idolOfWorship + ", beliefs=" + beliefs
+				+ ", numOfFollowers=" + numOfFollowers + ", description=" + description + "]";
 	}
+
 
 	
 }

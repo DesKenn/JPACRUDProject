@@ -26,8 +26,9 @@ public class ReligionDAOImpl implements ReligionDAO {
 	@Override
 	public List<Religion> findAll() {
 		
-		String query = "SELECT name FROM Religion name";
-		return em.createQuery(query,Religion.class).getResultList();
+		String query = "SELECT r FROM Religion r";
+		List <Religion> results = em.createQuery(query,Religion.class).getResultList();
+		return results;
 	}
 
 	@Override
@@ -46,7 +47,6 @@ Religion newReligion = em.find(Religion.class, religionId);
 		if(newReligion != null){
 			newReligion.setName(newReligion.getName());
 			newReligion.setOrigin(newReligion.getOrigin());
-			newReligion.setDescription(newReligion.getDescription());
 			newReligion.setBeliefs(newReligion.getBeliefs());
 			newReligion.setDateEstablished(newReligion.getDateEstablished());
 			newReligion.setFounder(newReligion.getFounder());

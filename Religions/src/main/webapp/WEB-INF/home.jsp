@@ -11,8 +11,9 @@
 
 <h1>Religions</h1>
 
-
-${religion.religionId} ${religions}
+<c:forEach var="religion" items="${religions}">
+ ${religion.id}: ${religion.name}
+			</c:forEach>
 
 <h2>Religion Details</h2>
 	<form action="showReligion.do" method="GET">
@@ -23,13 +24,7 @@ ${religion.religionId} ${religions}
 	
 	<h2>Add Religion</h2>
 	<form action="showReligion.do" method="POST">
-		<label for="name">Name: (required)</label> 
-		<input type="text" id="religionId" name="name" required>
-		</form>
-	<br> 
-	<br> 
-		<br> 
-			<br> 
+
 		 <label for="religionName">Name:</label>
     <input type="text" id="religionName" name="name" value="${religion.name}" required><br><br>
 
@@ -53,6 +48,5 @@ ${religion.religionId} ${religions}
 
 	<br>
 	<br>
-	</form>
 </body>
 </html>

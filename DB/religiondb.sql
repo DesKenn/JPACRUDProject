@@ -26,20 +26,10 @@ CREATE TABLE IF NOT EXISTS `religion` (
   `origin` VARCHAR(45) NULL,
   `date_established` VARCHAR(45) NULL,
   `founder` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `beliefs`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `beliefs` ;
-
-CREATE TABLE IF NOT EXISTS `beliefs` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `belief_name` VARCHAR(45) NOT NULL,
-  `description` TEXT(130) NULL,
-  `significance` VARCHAR(45) NULL,
+  `idol_of_worship` VARCHAR(45) NULL,
+  `beliefs` VARCHAR(250) NULL,
+  `number_of_followers` INT NULL,
+  `description` VARCHAR(250) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -59,7 +49,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `religiondb`;
-INSERT INTO `religion` (`id`, `name`, `origin`, `date_established`, `founder`) VALUES (1, 'Buddahism', NULL, NULL, NULL);
+INSERT INTO `religion` (`id`, `name`, `origin`, `date_established`, `founder`, `idol_of_worship`, `beliefs`, `number_of_followers`, `description`) VALUES (1, 'Buddhism', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 COMMIT;
 

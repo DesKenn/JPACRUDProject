@@ -22,7 +22,6 @@ public class Religion {
 	private String beliefs;
 	@Column (name = "number_of_followers")
 	private long numOfFollowers;
-	private String description;
 	
 	
 	public Religion() {
@@ -95,19 +94,12 @@ public class Religion {
 	}
 
 	
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 	@Override
 	public String toString() {
 		return "Religion [id=" + id + ", name=" + name + ", origin=" + origin + ", dateEstablished=" + dateEstablished
 				+ ", founder=" + founder + ", idolOfWorship=" + idolOfWorship + ", beliefs=" + beliefs
-				+ ", numOfFollowers=" + numOfFollowers + ", description=" + description + "]";
+				+ ", numOfFollowers=" + numOfFollowers ;
 	}
 
 

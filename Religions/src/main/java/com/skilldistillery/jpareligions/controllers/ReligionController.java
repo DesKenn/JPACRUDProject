@@ -21,14 +21,16 @@ public class ReligionController {
 	@Autowired
 	private ReligionDAO dao;
 
-	@RequestMapping(path = { "/", "home.do" })
+@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model) {
 		List<Religion> allReligions = dao.findAll();
 		model.addAttribute("religions", allReligions);
 
 		return "home";
 	}
-//
+
+		
+
 	@RequestMapping(path = { "showReligion.do" })
 	public ModelAndView findById(@RequestParam("religionId") int religionId) {
 		ModelAndView mv = new ModelAndView();
@@ -53,6 +55,7 @@ public class ReligionController {
 		try {
 		dao.create(religion);
 		mv.setViewName("success");
+		
 		} catch (Exception e) {
 			
 		mv.addObject("message", "Failed to add the Religion");
@@ -61,7 +64,7 @@ public class ReligionController {
 		return mv;
 	}
 
-	@RequestMapping(path = "delete.do", method = RequestMethod.POST)
+	@RequestMapping(path = "showReligion.do", method = RequestMethod.POST)
 	public ModelAndView deleteReligion(@Validated int religionId) {
 		
 		ModelAndView mv = new ModelAndView();

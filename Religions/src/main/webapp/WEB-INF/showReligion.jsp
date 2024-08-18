@@ -9,7 +9,7 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${! empty religion}">
+		<c:when test="${! empty foundReligion}">
 			<style>
      			table {
      				width: 100%;
@@ -44,7 +44,7 @@
 			</c:choose>
 			<br>
 			<br>
-			<form action="deleteReligion.do" method="POST">
+			<form action="delete.do" method="POST">
     			<input type="hidden" name="religionId" value="${religion.id}" />
     				<button type="submit">Delete Religion</button>
 			</form>

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<c:choose>
-		<c:when test="${! empty foundReligion}">
+		<c:when test="${! empty religion}">
 			<style>
      			table {
      				width: 100%;
@@ -29,7 +29,7 @@
 			<tr>
        			<td><strong>Religion ID:</strong> ${religion.id}</td>
        			<td><strong>Name:</strong> ${religion.name}</td>
-       			<td><strong>Description:</strong> ${religion.description}</td>
+       			<td><strong>Description:</strong> ${religion.beliefs}</td>
        			<td><strong>Date Established:</strong> ${religion.dateEstablished}</td>
        			<td><strong>Religion Founder:</strong> ${religion.founder}</td>
        			<td><strong>Idol(s) of worship:</strong> ${religion.idolOfWorship}</td>
@@ -37,6 +37,12 @@
        			</tr>
        			</tbody>
        			</table>
+       					<form action="delete.do" method="POST">
+    			<input type="hidden" name="religionId" value="${religion.id}" />
+    				<button type="submit">Delete Religion</button>
+			</form>
+			<br>
+			<a href="updateReligion.do">Update Religion details</a>
 			</c:when>
 			<c:otherwise>
 				<p>No Religion details available. Please check to see if Religion ID is correct and try again.</p>
@@ -44,11 +50,7 @@
 			</c:choose>
 			<br>
 			<br>
-			<form action="delete.do" method="POST">
-    			<input type="hidden" name="religionId" value="${religion.id}" />
-    				<button type="submit">Delete Religion</button>
-			</form>
-			<br>
+	
 
 			<br>
 			<a href="home.do">Back to Home</a>

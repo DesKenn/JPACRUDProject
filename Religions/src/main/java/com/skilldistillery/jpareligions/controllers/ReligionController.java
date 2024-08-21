@@ -64,8 +64,8 @@ public class ReligionController {
 		return mv;
 	}
 
-	@RequestMapping(path = "showReligion.do", method = RequestMethod.POST)
-	public ModelAndView deleteReligion(@Validated int religionId) {
+	@RequestMapping(path = "delete.do", method = RequestMethod.POST)
+	public ModelAndView deleteReligion(@RequestParam("religionId") int religionId) {
 		
 		ModelAndView mv = new ModelAndView();
 		Religion religion = dao.findById(religionId);
@@ -90,14 +90,16 @@ public class ReligionController {
 
 		}
 	@RequestMapping(path = "updateReligion.do", method = RequestMethod.POST)
-	public ModelAndView updateReligion(@ModelAttribute("religion") int religionId, Religion religion) {
+	public ModelAndView updateReligion( Religion religion) {
 		ModelAndView mv = new ModelAndView();
 
 		try {		
-			Religion updatedReligion =  dao.update(religionId, religion);
+			System.out.println("*********************");
+			Religion updatedReligion =  dao.update(religion.getId(), religion);
+			System.out.println(updatedReligion);
 			if (updatedReligion != null) {
 				mv.addObject("religion", updatedReligion);
-				mv.setViewName("updateReligion.jsp");
+				mv.setViewName("updateReligion");
 			} else {
 				mv.addObject("message", "Failed to update the Religion.");
 				mv.setViewName("error");
@@ -109,6 +111,16 @@ public class ReligionController {
 		}
 
 		return mv;
+	}
+	
+	@RequestMapping(path="showUpdateForm.do", method=RequestMethod.GET)
+	public ModelAndView showUpdateForm(@RequestParam("religionId") int religionId) {
+		ModelAndView mv = new ModelAndView();
+		Religion updateReligion = dao.findById(religionId);
+		mv.addObject("updatedReligion", updateReligion);
+		mv.setViewName("updateReligion");
+		return mv;
+		
 	}
 
 	}

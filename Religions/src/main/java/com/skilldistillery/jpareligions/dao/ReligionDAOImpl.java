@@ -41,23 +41,23 @@ public class ReligionDAOImpl implements ReligionDAO {
 	}
 
 	@Override
-	public Religion update(int religionId, Religion religion) {
-Religion newReligion = em.find(Religion.class, religionId);
+	public Religion update(int religionId, Religion updatedReligion) {
+Religion religion = em.find(Religion.class, religionId);
 		
-		if(newReligion != null){
-			newReligion.setName(newReligion.getName());
-			newReligion.setOrigin(newReligion.getOrigin());
-			newReligion.setBeliefs(newReligion.getBeliefs());
-			newReligion.setDateEstablished(newReligion.getDateEstablished());
-			newReligion.setFounder(newReligion.getFounder());
-			newReligion.setIdolOfWorship(newReligion.getIdolOfWorship());
-			newReligion.setNumOfFollowers(newReligion.getNumOfFollowers());
+		if(religion != null){
+			religion.setName(updatedReligion.getName());
+			religion.setOrigin(updatedReligion.getOrigin());
+			religion.setBeliefs(updatedReligion.getBeliefs());
+			religion.setDateEstablished(updatedReligion.getDateEstablished());
+			religion.setFounder(updatedReligion.getFounder());
+			religion.setIdolOfWorship(updatedReligion.getIdolOfWorship());
+			religion.setNumOfFollowers(updatedReligion.getNumOfFollowers());
 			
 		}
-		em.persist(newReligion);
+		em.persist(religion);
 		em.flush();
 
-		return newReligion;
+		return religion;
 
 	}	
 

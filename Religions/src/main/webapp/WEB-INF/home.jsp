@@ -23,13 +23,32 @@
 	</form>
 	
 	<h2>Add Religion</h2>
-	<form action="showReligion.do" method="POST">
+	<form action="success.do" method="POST">
 
+		 <label for="religionName">Name:</label>
+    <input type="text" id="religionName" name="name" required><br><br>
+
+    <label for="religionDescription">Description:</label>
+    <input type="text" id="religionBeliefs" name="beliefs" ><br><br>
+
+    <label for="religionDateEstablished">Date Established:</label>
+    <input type="text" id="religionDateEstablished" name="dateEstablished" ><br><br>
+
+    <label for="religionFounder">Religion Founder:</label>
+    <input type="text" id="religionFounder" name="founder"  ><br><br>
+
+    <label for="religionIdolOfWorship">Idol(s) of worship:</label>
+    <input type="text" id="religionIdolOfWorship" name="idolOfWorship" ><br><br>
+
+    <label for="religionNumOfFollowers">Number of followers:</label>
+    <input type="number" id="religionNumOfFollowers" name="numOfFollowers" ><br><br>
+    
+<%-- 
 		 <label for="religionName">Name:</label>
     <input type="text" id="religionName" name="name" value="${religion.name}" required><br><br>
 
     <label for="religionDescription">Description:</label>
-    <input type="text" id="religionDescription" name="description" value="${religion.description}"><br><br>
+    <input type="text" id="religionBeliefs" name="beliefs" value="${religion.beliefs}"><br><br>
 
     <label for="religionDateEstablished">Date Established:</label>
     <input type="text" id="religionDateEstablished" name="dateEstablsihed" value="${religion.dateEstablished}"><br><br>
@@ -42,10 +61,10 @@
 
     <label for="religionNumOfFollowers">Number of followers:</label>
     <input type="number" id="religionNumOfFollowers" name="numOfFollowers" value="${religion.numOfFollowers}"><br><br>
-    
+     --%>
 
 		<button type="submit">Add Religion</button>
-
+</form>
 	<br>
 	<br>
 </body>

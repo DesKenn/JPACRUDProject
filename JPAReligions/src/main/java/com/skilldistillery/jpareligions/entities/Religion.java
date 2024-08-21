@@ -21,7 +21,7 @@ public class Religion {
 	private String idolOfWorship;
 	private String beliefs;
 	@Column (name = "number_of_followers")
-	private long numOfFollowers;
+	private Long numOfFollowers;
 	
 	
 	public Religion() {
@@ -77,11 +77,11 @@ public class Religion {
 		this.idolOfWorship = idolOfWorship;
 	}
 
-	public long getNumOfFollowers() {
+	public Long getNumOfFollowers() {
 		return numOfFollowers;
 	}
 
-	public void setNumOfFollowers(long numOfFollowers) {
+	public void setNumOfFollowers(Long numOfFollowers) {
 		this.numOfFollowers = numOfFollowers;
 	}
 
